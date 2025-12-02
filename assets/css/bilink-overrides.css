@@ -1,0 +1,101 @@
+/* === Bilink Pay Visual Overrides (for Payment Solutions page) === */
+:root {
+  --bp-blue: #FFFFFF;     /* 主色 Maya Blue */
+  --bp-blue-soft: #CCEEFF;
+  --bp-black: #202020;    /* 標題黑 */
+  --bp-white: #ffffff;
+  --bp-text: #FFFFFF;     /* 內文灰 */
+}
+
+/* 字體全站套用（只影響這頁，因為只在這頁載入） */
+body { font-family: "Host Grotesk", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important; color: var(--bp-black); }
+h1, h2, h3, h4, h5, h6 { font-family: "Finlandica","Host Grotesk",sans-serif !important; color: var(--bp-black); }
+p, li, .text, .lead { color: var(--bp-text); }
+
+/* 主要色系覆寫（常見 class 名稱都一併照顧） */
+a { color: var(--bp-black); }
+a:hover { color: #0e0e0e; }
+
+.btn, .theme-btn, .btn-primary, .button, .primary-btn {
+  color: #202020 !important;
+  background-image: linear-gradient(135deg, var(--bp-blue), var(--bp-blue-soft)) !important;
+  border: none !important;
+  box-shadow: 0 8px 22px rgba(102,204,255,.35) !important;
+}
+.btn:hover, .theme-btn:hover, .btn-primary:hover, .button:hover, .primary-btn:hover {
+  filter: brightness(0.98); transform: translateY(-1px);
+}
+
+.btn-outline-primary, .outline-btn, .btn.border-primary {
+  color: var(--bp-black) !important;
+  background: var(--bp-white) !important;
+  border-color: var(--bp-blue) !important;
+}
+.btn-outline-primary:hover, .outline-btn:hover, .btn.border-primary:hover {
+  background: var(--bp-blue-soft) !important;
+  border-color: var(--bp-blue-soft) !important;
+}
+
+/* 文字／背景主色 */
+.text-primary, .color-primary, .heading span, .section-title span { color: var(--bp-blue) !important; }
+.bg-primary, .bg-theme, .badge-primary { background: var(--bp-blue) !important; }
+
+/* 導覽列（常見命名都包進來） */
+.navbar, .header, .site-header {
+  border-bottom: 0px solid rgba(0,0,0,.06);
+}
+.navbar .nav-link, .navbar-light .navbar-nav .nav-link, .menu-item > a {
+  color: var(--bp-black) !important; font-weight: 600;
+}
+.navbar .nav-link:hover { color: #0e0e0e !important; }
+
+/* Hero/section 背景若原本是深色，改為淺底＋淺藍漸層 */
+.hero, .page-hero, .banner, .header-hero {
+  background: linear-gradient(180deg, rgba(204,238,255,.5), #fff 55%) !important;
+}
+
+/* 圖示點綴：把螢光綠/深色系替換成品牌藍 */
+.icon, .feature-icon, .service-icon, .circle-icon, .step .icon {
+  color: var(--bp-blue) !important;
+  fill: var(--bp-blue) !important;
+  border-color: var(--bp-blue) !important;
+}
+
+/* 常見卡片/區塊：白底＋柔邊陰影 */
+.card, .feature-box, .service-box, .pricing-card, .info-box {
+  background: #fff !important;
+  border: 1px solid rgba(0,0,0,.08) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.05) !important;
+}
+
+/* Footer 走淺色 */
+.footer, .site-footer { background: #fff !important; color: var(--bp-text) !important; }
+.footer a { color: var(--bp-black) !important; }
+
+/* 若模板有 .bg-dark 或深色段落，轉為白底 */
+.bg-dark, .dark-bg, .section-dark { background: #66CCFF !important; color: var(--bp-black) !important; }
+
+/* 表單聚焦色 */
+input:focus, select:focus, textarea:focus {
+  border-color: var(--bp-blue) !important;
+  box-shadow: 0 0 0 0.2rem rgba(102,204,255,.25) !important;
+}
+
+/* ---- Logo 顯示邏輯（先固定用深色版） ---- */
+.site_logo img { height: 28px; }
+.site_logo img[alt*="Light"] { display: none !important; } /* 隱藏白色版 */
+.site_logo img[alt*="Dark"]  { display: inline-block !important; }
+
+/* 某些主題會在 sticky 時動態加 class，強制仍用深色版 */
+.stricky-fixed .site_logo img[alt*="Light"],
+.header_layout_1.sticky .site_logo img[alt*="Light"] {
+  display: none !important;
+}
+.stricky-fixed .site_logo img[alt*="Dark"],
+.header_layout_1.sticky .site_logo img[alt*="Dark"] {
+  display: inline-block !important;
+}
+
+/* 假如主題用 background-image 當 logo，先關掉以免蓋到 */
+.site_logo .site_link { background-image: none !important; }
